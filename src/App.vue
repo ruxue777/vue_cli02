@@ -4,10 +4,27 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/list">List</router-link> |
       <router-link to="/about">About</router-link>
+
+      <br><br>
+
+      <router-link to="/user/5">/user/5</router-link> |
+      <router-link to="/user/6">/user/6</router-link> |
+
     </div>
     <router-view/>
   </div>
 </template>
+
+<script>
+export default {
+  watch :{
+    $route(to,from){
+      console.log(to);
+      console.log(from);
+    }
+  }
+}
+</script>
 
 <style>
 #app {
