@@ -10,6 +10,11 @@
       <router-link to="/user/5">/user/5</router-link> |
       <router-link to="/user/6">/user/6</router-link> |
 
+      <br><br>
+
+      <router-link to="/user/5/profile">5号档案</router-link> |
+      <router-link to="/user/5/posts">5号岗位</router-link> |
+
     </div>
     <router-view/>
   </div>
@@ -19,8 +24,8 @@
 export default {
   watch :{
     $route(to,from){
-      console.log(to);
-      console.log(from);
+      // console.log(to);
+      // console.log(from);
     }
   }
 }

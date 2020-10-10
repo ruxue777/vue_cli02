@@ -4,6 +4,10 @@ import Home from '../views/Home.vue'
 import List from '../views/List.vue'
 import User from '../views/User.vue'
 
+import UserProfile from '../views/user/UserProfile.vue';
+import UserPosts from '../views/user/UserPosts.vue'
+
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -19,13 +23,23 @@ const routes = [
   },{
     path: '/user/:id',
     name: 'User',
-    component: User
+    component: User,
+    children: [
+      {
+        path: 'profile',
+        component : UserProfile
+      },
+      {
+        path: 'posts',
+        component : UserPosts
+      }
+    ]
   },
-  {
-    path: '/user-*',
-    name: 'Home',
-    component: Home
-  },
+  // {
+  //   path: '/user-*',
+  //   name: 'Home',
+  //   component: Home
+  // },
   {
     path: '/about',
     name: 'About',
