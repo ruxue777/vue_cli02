@@ -15,6 +15,12 @@
       <router-link to="/user/5/profile">5号档案</router-link> |
       <router-link to="/user/5/posts">5号岗位</router-link> |
 
+      <br><br>
+
+      <button @click="goList">goList</button>
+      <button @click="goUser(6)">goUser</button>
+      <button @click="go(-1)">goUp</button>
+      <button @click="go(1)">goDown</button>
     </div>
     <router-view/>
   </div>
@@ -26,6 +32,27 @@ export default {
     $route(to,from){
       // console.log(to);
       // console.log(from);
+    }
+  },
+  methods:{
+    // goList(){
+    //   this.$router.push('/list')
+    // }
+    goList(){
+      this.$router.push({
+        path : '/list'
+      })
+    },
+    goUser(id){
+      this.$router.push({
+        name : 'User',
+        params : {
+          id
+        }
+      })
+    },
+    go(step){
+      this.$router.go(step)
     }
   }
 }
