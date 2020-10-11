@@ -21,8 +21,17 @@
       <button @click="goUser(6)">goUser</button>
       <button @click="go(-1)">goUp</button>
       <button @click="go(1)">goDown</button>
+
+      <br><br>
+
+      <router-link :to="{name:'User' ,params :{id:5}}">user/5</router-link> |
+      <router-link :to="{path: '/user',query :{id :6}}">user/6</router-link>
     </div>
+
+    <router-view name="sidebar"></router-view>
     <router-view/>
+    <router-view name="footer"></router-view>
+
   </div>
 </template>
 

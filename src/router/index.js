@@ -7,6 +7,8 @@ import User from '../views/User.vue'
 import UserProfile from '../views/user/UserProfile.vue';
 import UserPosts from '../views/user/UserPosts.vue'
 
+import Sidebar from '../views/Sidebar.vue';
+import Footer from '../views/Footer.vue'
 
 Vue.use(VueRouter)
 
@@ -14,12 +16,20 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Home
+    components: {
+      default : Home,
+      sidebar : Sidebar,
+      footer : Footer
+    }
   },
   {
     path: '/list',
     name: 'List',
-    component: List
+    components: {
+      default : List,
+      sidebar : Sidebar,
+      footer : Footer
+    }
   },{
     path: '/user/:id',
     name: 'User',
@@ -46,7 +56,12 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    //component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    components: {
+      default : () => import(/* webpackChunkName: "about" */ '../views/About.vue'),
+      sidebar : Sidebar,
+      footer : Footer
+    }
   }
 ]
 
