@@ -1,13 +1,14 @@
 <template>
   <div>
-    <h3>User Id :{{$route.params.id}}</h3>
+    <h3>User Id :{{id}}</h3>
     <router-view/>
   </div> 
 </template>
 
 <script>
 export default {
-    name :'User'
+    name :'User',
+    props:['id']
 }
 </script>
 

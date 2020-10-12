@@ -25,14 +25,21 @@ const routes = [
   {
     path: '/list',
     name: 'List',
+    props:{
+      default : {
+        data: '列表'
+      }
+    },
     components: {
       default : List,
       sidebar : Sidebar,
       footer : Footer
     }
+    //component: List
   },{
     path: '/user/:id',
     name: 'User',
+    props :true,
     component: User,
     children: [
       {
@@ -45,11 +52,21 @@ const routes = [
       }
     ]
   },
-  // {
-  //   path: '/user-*',
-  //   name: 'Home',
-  //   component: Home
-  // },
+  {
+    path: '/a',
+    //redirect: '/'
+    // redirect:{
+    //   name: 'List'
+    // }
+    redirect:()=>{
+      if(true){
+        //return '/List'
+        return {
+          name: 'List'
+        }
+      }
+    }
+  },
   {
     path: '/about',
     name: 'About',
@@ -61,6 +78,11 @@ const routes = [
       default : () => import(/* webpackChunkName: "about" */ '../views/About.vue'),
       sidebar : Sidebar,
       footer : Footer
+    },
+    props :{
+      default : route => ({
+        search : route.query.search
+      })
     }
   }
 ]
